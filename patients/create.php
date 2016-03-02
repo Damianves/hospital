@@ -1,20 +1,31 @@
 <?php
 	require_once "create.logic.php";
 	include "../common/header.php";
+	//include_once "func.inc.php";
+	require_once"logic.php";
+	
+	
+
 ?>
 	<h1>New patiënt</h1>
-	<form method="post">
+	<form action="" method="post">
 		<div>
 			<label for="name">Name:</label>
-			<input type="text" id="name" name="name">
+			<input required = "required" type="text" id="name" name="name">
 		</div>
 		<div>
 			<label for="name">Species:</label>
-			<input type="text" id="species" name="species">
+			<input required = "required"type="text" id="species" name="species">
+			<label for="name">Select client:</label>
+				<select name="species" id="species">
+					<?php foreach ($slclient as $slclients): ?>
+					<option value="<?= $slclients['id'];?>"><?= $slclients['name'];?></option>
+					<?php endforeach; ?>
+				</select>
 		</div>
 		<div>
 			<label for="name">status:</label>
-			<textarea id="status" name="status"></textarea>
+			<textarea required = "required" id="status" name="status"></textarea>
 		</div>
 		<div>
 		<label for="name">gender:</label>
@@ -23,10 +34,22 @@
 
 		</div>
 		<div>
+			<label for="name">Select client:</label>
+				<select name="sltname" id="client_id">
+					<?php foreach ($species as $specie): ?>
+					<option value="<?= $specie['id'];?>"><?= $specie['type'];?></option>
+					<?php endforeach; ?>
+				</select>
+
+				
+			</p>
+		</div>
+		<div>
 			<label></label>
 			<input type="submit" value="Save">
 		</div>
 	</form>
 <?php
 	include "../common/footer.php";
+	
 ?>
