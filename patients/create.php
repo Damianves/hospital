@@ -3,6 +3,7 @@
 	include "../common/header.php";
 	//include_once "func.inc.php";
 	require_once"logic.php";
+	require_once"../species/index.logic.php";
 	
 	
 
@@ -14,12 +15,10 @@
 			<input required = "required" type="text" id="name" name="name">
 		</div>
 		<div>
-			<label for="name">Species:</label>
-			<input required = "required"type="text" id="species" name="species">
-			<label for="name">Select client:</label>
-				<select name="species" id="species">
-					<?php foreach ($slclient as $slclients): ?>
-					<option value="<?= $slclients['id'];?>"><?= $slclients['name'];?></option>
+			<label for="name">Select species:</label>
+				<select name="species_id" id="type">
+					<?php foreach ($species as $specie): ?>
+					<option value="<?= $specie['id'];?>"><?= $specie['type'];?></option>
 					<?php endforeach; ?>
 				</select>
 		</div>
@@ -35,9 +34,9 @@
 		</div>
 		<div>
 			<label for="name">Select client:</label>
-				<select name="sltname" id="client_id">
-					<?php foreach ($species as $specie): ?>
-					<option value="<?= $specie['id'];?>"><?= $specie['type'];?></option>
+				<select name="client_id" id="client_id">
+					<?php foreach ($slclient as $slclients): ?>
+					<option value="<?= $slclients['id'];?>"><?= $slclients['name'];?></option>
 					<?php endforeach; ?>
 				</select>
 

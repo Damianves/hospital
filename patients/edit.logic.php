@@ -6,7 +6,7 @@
 			$db = new mysqli('localhost','root','','hospital');
 			$id = $db->escape_string($_GET["id"]);
 			
-			$query = "SELECT * from patient where id=$id";
+			$query = "SELECT * FROM patient WHERE id=$id";
 			$result = $db->query($query);
 		
 			$patient = $result->fetch_assoc();		
@@ -26,9 +26,11 @@
 		//$species = $db->escape_string($_POST["species"]);
 		$status = $db->escape_string($_POST["status"]);
 		$gender=$db->escape_string($_POST["gender"]);
+		$species_id=$db-> escape_string($_POST["species_id"]);
+		$clients_id= $db-> escape_string($_POST["client_id"]);
 		
 		// Prepare query and execute
-		$query = "UPDATE patient set name='$name',status='$status',gender='$gender' where id=$id";
+		$query = "UPDATE patient set name='$name',status='$status',gender='$gender', species_id='$species_id', clients_id='$clients_id' where id=$id";
 		$result = $db->query($query);
 	
     // Tell the browser to go back to the index page.
